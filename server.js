@@ -8,13 +8,15 @@ const app = express();
 //We use this to deploy to heroku
 //process.env.port, needs this code 
 //Heroku determines which port we use to run on, we don't get to choose/
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 5000;
 
 
 // Sets up the Express app to handle data parsing
-app.use(express.urlencoded({ extended: true }));
-app.use(express.json());
-app.use(express.static('Develop/public'))
+//
+app.use(express.urlencoded({ extended: true })); //This is a built-in middleware function in Express. It parses incoming requests with urlencoded payloads and is based on body-parser.
+app.use(express.json()); //This is a built-in middleware function in Express. It parses incoming requests with JSON payloads and is based on body-parser.
+app.use(express.static('Develop/public')) //To serve static files such as images, CSS files, and JavaScript files, use the express.static built-in middleware function in Express.
+                                          //express.static(root, [options]) ,, The root argument specifies the root directory from which to serve static assets.Now, you can load the files that are in the public      directory:
 
 // ROUTER
 // The below points our server to a series of "route" files.
