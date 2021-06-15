@@ -8,19 +8,19 @@ const app = express();
 //We use this to deploy to heroku
 //process.env.port, needs this code 
 //Heroku determines which port we use to run on, we don't get to choose/
-const PORT = process.env.PORT || 8080;
+const PORT = process.env.PORT || 3000;
 
 
 // Sets up the Express app to handle data parsing
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
-app.use(express.static('public'))
+// app.use(express.static('Develop/public'))
 
 // ROUTER
 // The below points our server to a series of "route" files.
 // These routes give our server a "map" of how to respond when users visit or request data from various URLs.
-require('./routes/apiRoutes')(app);
-require('./routes/htmlRoutes')(app);
+require('./Develop/routes/apiRoutes')(app);
+require('./Develop/routes/htmlRoutes')(app);
 
 // LISTENER
 // The below code effectively "starts" our server
