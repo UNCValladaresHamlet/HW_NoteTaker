@@ -1,5 +1,6 @@
 const noteInfo = require('../db/db.json');
 const fs = require('fs');
+const { v4: uuidv4 } = require('uuid');
 // ROUTING
 
 module.exports = (app) => {
@@ -10,6 +11,9 @@ module.exports = (app) => {
   app.post('/api/notes', (req, res) => {
 
     noteInfo.push(req.body);
+    req.body.id = uuidv4();
+    // noteInfo.push({...req.body,id:1});
+
     console.log('req.body: ', req.body)
 
     fs.writeFile('./Develop/db/db.json', JSON.stringify(noteInfo), (err) =>
