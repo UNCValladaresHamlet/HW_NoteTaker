@@ -16,7 +16,7 @@ module.exports = (app) => {
 
     console.log('req.body: ', req.body)
 
-    fs.writeFile('./Develop/db/db.json', JSON.stringify(noteInfo), (err) =>
+    fs.writeFile('./db/db.json', JSON.stringify(noteInfo), (err) =>
       err ? console.error(err) : console.log('Hamlet look here'))
     res.json(noteInfo);
   });
