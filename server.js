@@ -8,7 +8,7 @@ const app = express();
 //We use this to deploy to heroku
 //process.env.port, needs this code 
 //Heroku determines which port we use to run on, we don't get to choose/
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 3000;
 
 
 // Sets up the Express app to handle data parsing
